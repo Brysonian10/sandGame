@@ -56,13 +56,13 @@ public class SandLab
     	for(int cols = 0; cols < grid[0].length; cols++)
     	{
     		int temp = grid[rows][cols];
-    		if(temp == 1)
+    		if(temp == METAL)
     		{
     			display.setColor(rows, cols, Color.GRAY);
-    		} else if (temp == 0)
+    		} else if (temp == EMPTY)
     		{
     			display.setColor(rows, cols, Color.BLACK);
-    		} else if(temp == 2)
+    		} else if(temp == SAND)
     		{
     			display.setColor(rows, cols, Color.YELLOW);
     		}
@@ -79,7 +79,21 @@ public class SandLab
     //The scalar refers to how big the value could be
     //int someRandom = (int) (Math.random() * scalar)
     //remember that you need to watch for the edges of the array
+    int someRandomRow = (int)(Math.random() * grid.length);
+    int someRandomCol = (int)(Math.random() * grid[0].length);
     
+    if(grid[someRandomRow][someRandomCol] == SAND)
+    {
+    	if(grid[someRandomRow + 1][someRandomCol] == EMPTY)
+    	{
+    		grid[someRandomRow][someRandomCol] = EMPTY;
+    		grid[someRandomRow + 1][someRandomCol] = SAND;
+    	} else
+    	{
+    		//do nothing
+    	}
+    }
+    	
     
   }
   
